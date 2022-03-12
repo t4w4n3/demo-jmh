@@ -1,4 +1,4 @@
-package gradle;
+package fr.tawane.app;
 
 import org.openjdk.jmh.annotations.Benchmark;
 import org.openjdk.jmh.annotations.BenchmarkMode;
@@ -14,8 +14,8 @@ public class ExtractLabelsBenchmark {
 
 	@Fork(value = 1)
 	@BenchmarkMode(AverageTime)
-	@Warmup(iterations = 1)
-	@Measurement(iterations = 2, time = 1)
+	@Warmup(iterations = 1, time = 2)
+	@Measurement(time = 3)
 	@OutputTimeUnit(MICROSECONDS)
 	@Benchmark
 	public void withForLoop(MyState myState) {
@@ -24,8 +24,8 @@ public class ExtractLabelsBenchmark {
 
 	@Fork(value = 1)
 	@BenchmarkMode(AverageTime)
-	@Warmup(iterations = 1)
-	@Measurement(iterations = 2, time = 1)
+	@Warmup(iterations = 1, time = 2)
+	@Measurement(time = 3)
 	@OutputTimeUnit(MICROSECONDS)
 	@Benchmark
 	public void withStream(MyState myState) {
