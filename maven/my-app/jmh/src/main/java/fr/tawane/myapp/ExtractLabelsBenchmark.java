@@ -1,4 +1,4 @@
-package fr.tawane.app;
+package fr.tawane.myapp;
 
 import org.openjdk.jmh.annotations.Benchmark;
 import org.openjdk.jmh.annotations.BenchmarkMode;

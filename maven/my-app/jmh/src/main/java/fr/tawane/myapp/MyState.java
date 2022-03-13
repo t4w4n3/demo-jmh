@@ -1,4 +1,4 @@
-package fr.tawane.app;
+package fr.tawane.myapp;
 
 import fr.tawane.myapp.app.App;
 import fr.tawane.myapp.app.ExtractLabelsWithForLoop;
