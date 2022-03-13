@@ -18,9 +18,8 @@ public class App {
 		app.run();
 	}
 
-	public void run() {
+	public List<String> run() {
 		var statuts = List.of(new Statut("sent", "s"), new Statut("received", "r"));
-		List<String> labels = extractLabels.extract(statuts);
-		System.out.println(labels);
+		return extractLabels.extract(statuts);
 	}
 }

@@ -3,32 +3,30 @@ package fr.tawane.myapp;
 import org.openjdk.jmh.annotations.Benchmark;
 import org.openjdk.jmh.annotations.BenchmarkMode;
 import org.openjdk.jmh.annotations.Fork;
-import org.openjdk.jmh.annotations.Measurement;
+import org.openjdk.jmh.annotations.Mode;
 import org.openjdk.jmh.annotations.OutputTimeUnit;
 import org.openjdk.jmh.annotations.Warmup;
 
-import static java.util.concurrent.TimeUnit.MICROSECONDS;
-import static org.openjdk.jmh.annotations.Mode.AverageTime;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class ExtractLabelsBenchmark {
 
-	@Fork(value = 1)
-	@BenchmarkMode(AverageTime)
-	@Warmup(iterations = 1, time = 2)
-	@Measurement(time = 3)
-	@OutputTimeUnit(MICROSECONDS)
+	@Fork(1)
+	@OutputTimeUnit(TimeUnit.NANOSECONDS)
+	@BenchmarkMode(Mode.AverageTime)
+	@Warmup(iterations = 3)
 	@Benchmark
-	public void withForLoop(MyState myState) {
-		myState.appWithForLoop.run();
+	public List<String> withForLoop(MyState myState) {
+		return myState.appWithForLoop.run();
 	}
 
-	@Fork(value = 1)
-	@BenchmarkMode(AverageTime)
-	@Warmup(iterations = 1, time = 2)
-	@Measurement(time = 3)
-	@OutputTimeUnit(MICROSECONDS)
+	@Fork(1)
+	@OutputTimeUnit(TimeUnit.NANOSECONDS)
+	@BenchmarkMode(Mode.AverageTime)
+	@Warmup(iterations = 3)
 	@Benchmark
-	public void withStream(MyState myState) {
-		myState.appWithStream.run();
+	public List<String> withStream(MyState myState) {
+		return myState.appWithStream.run();
 	}
 }
